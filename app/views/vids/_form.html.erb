@@ -1,0 +1,21 @@
+<%= form_for(@vid) do |f| %>
+  <% if @vid.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vid.errors.count, "error") %> prohibited this vid from being saved:</h2>
+
+      <ul>
+      <% @vid.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :eat_t %><br>
+    <%= f.text_field :eat_t %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

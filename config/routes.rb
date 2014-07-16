@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :vids
+
+  resources :bodies
+
   get 'admin' => 'admin#index'
   controller :session do
     get 'login' => :new
@@ -11,6 +15,8 @@ Rails.application.routes.draw do
   get 'session/create'
 
   get 'session/destroy'
+  
+  get 'store/composition'
 
   resources :users
 

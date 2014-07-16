@@ -1,0 +1,41 @@
+<%= form_for(@body) do |f| %>
+  <% if @body.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@body.errors.count, "error") %> prohibited this body from being saved:</h2>
+
+      <ul>
+      <% @body.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pol %><br>
+    <%= f.text_field :pol %>
+  </div>
+  <div class="field">
+    <%= f.label :objective %><br>
+    <%= f.text_field :objective %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.text_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :fat %><br>
+    <%= f.text_field :fat %>
+  </div>
+  <div class="field">
+    <%= f.label :bol %><br>
+    <%= f.text_field :bol %>
+  </div>
+  <div class="field">
+    <%= f.label :kind_sport %><br>
+    <%= f.text_field :kind_sport %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,65 @@
+<h1>Подбор спортивного питания</h1>
+
+
+ <%= form_for(@body) do |form| %>
+  <p>
+ <%= form.label 'Выберите вид спорта :      ' %>
+ <%= form.radio_button :kind_sport, '1'  %>
+ <%= form.label 'Бодибилдинг' %>
+ <%= form.radio_button :kind_sport, '2'  %>
+ <%= form.label 'Бег' %>
+ <%= form.radio_button :kind_sport, '3'  %>
+ <%= form.label 'Велоспорт' %>
+ <%= form.radio_button :kind_sport, '4'  %>
+ <%= form.label 'Игровой вид спорта' %>
+ <%= form.radio_button :kind_sport, '5'  %>
+ <%= form.label 'Другой вид спорта' %>
+ </p>
+ <p>
+ <%= form.label 'Пол :      ' %>
+ <%= form.radio_button :pol, 'Men'  %>
+ <%= form.label 'Мужской' %>
+ <%= form.radio_button :pol, 'Famale'  %>
+ <%= form.label 'Женский' %>
+ </p>
+ <p>
+ <p>
+ <%= form.select :objective, Bodie::YOUR_OBJECTIVE, prompt: 'Какую основную цель вы преследуете?' %>
+ </p>
+ <p>
+ <%= form.label 'Ваш возраст:' %>
+ <%= form.radio_button :age, '1'  %>
+ <%= form.label 'Моложе 18' %>
+ <%= form.radio_button :age, '2'  %>
+ <%= form.label '18-49' %>
+  <%= form.radio_button :age, '3'  %>
+ <%= form.label 'Старше 50' %>
+ </p>
+ <p>
+ <%= form.label 'Какие у вас невылеченные заболевания' %>
+ <%= form.check_box :bol  %>
+ <%= form.label 'Повышенное артериальное давление' %>
+ <%= form.check_box :bol %>
+ <%= form.label 'Заболевания сердца' %>
+ <%= form.check_box :bol %>
+ <%= form.label ' Заболевания почек или печени' %>
+ <%= form.check_box :bol %>
+ <%= form.label ' Недавние травмы, боли в связках и суставах' %>
+ </p>
+ <p>
+ <%= form.label 'Есть ли у вас склонность к полноте:' %>
+ <%= form.radio_button :fat, 'yes'  %>
+  <%= form.label 'Есть' %>
+  <%= form.radio_button :fat, 'no'  %>
+  <%= form.label 'Нет' %>
+ </p>
+ <p>
+ <%= form.submit 'Результат'%>
+</p>
+<p>
+<%= form.label 'Вам подойдёт: протеин,гейнер, аминокислоты, аргинин,добавка с глюкозамином, хондроитином и MSM' %>
+<% end %>
+
+
+<br>
+

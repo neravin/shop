@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527154846) do
+ActiveRecord::Schema.define(version: 20140607143919) do
+
+  create_table "bodies", force: true do |t|
+    t.string   "pol"
+    t.string   "objective"
+    t.string   "age"
+    t.string   "fat"
+    t.string   "bol"
+    t.string   "kind_sport"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "carts", force: true do |t|
     t.datetime "created_at"
@@ -54,6 +65,12 @@ ActiveRecord::Schema.define(version: 20140527154846) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vids", force: true do |t|
+    t.string   "eat_t"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

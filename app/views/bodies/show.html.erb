@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pol:</strong>
+  <%= @body.pol %>
+</p>
+
+<p>
+  <strong>Objective:</strong>
+  <%= @body.objective %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @body.age %>
+</p>
+
+<p>
+  <strong>Fat:</strong>
+  <%= @body.fat %>
+</p>
+
+<p>
+  <strong>Bol:</strong>
+  <%= @body.bol %>
+</p>
+
+<p>
+  <strong>Kind sport:</strong>
+  <%= @body.kind_sport %>
+</p>
+
+<%= link_to 'Edit', edit_body_path(@body) %> |
+<%= link_to 'Back', bodies_path %>

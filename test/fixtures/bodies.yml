@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pol: MyString
+  objective: MyString
+  age: MyString
+  fat: MyString
+  bol: MyString
+  kind_sport: MyString
+
+two:
+  pol: MyString
+  objective: MyString
+  age: MyString
+  fat: MyString
+  bol: MyString
+  kind_sport: MyString
