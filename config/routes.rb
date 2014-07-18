@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'clients/new'
+
   get 'client/new'
 
   resources :vids

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607143919) do
+ActiveRecord::Schema.define(version: 20140718114752) do
 
   create_table "bodies", force: true do |t|
     t.string   "pol"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20140607143919) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "clients", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+  end
+
+  add_index "clients", ["email"], name: "index_clients_on_email", unique: true
 
   create_table "line_items", force: true do |t|
     t.integer  "product_id"
