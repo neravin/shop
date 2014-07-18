@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.0.0'
 
 
 gem 'rails', '4.1.0'
@@ -21,8 +21,4 @@ gem 'bcrypt-ruby'
 
 group :doc do
   gem 'sdoc', '0.4.0', require: false
-end
-
-group :development, :test do
-  gem 'railroady'
 end

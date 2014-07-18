@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
+
   resources :clients
+
+  resources :categories
+
 
   resources :vids
 
