@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :categories
+
   resources :vids
 
   resources :bodies
