@@ -22,3 +22,7 @@ gem 'bcrypt-ruby'
 group :doc do
   gem 'sdoc', '0.4.0', require: false
 end
+
+group :development, :test do
+  gem 'railroady'
+end
