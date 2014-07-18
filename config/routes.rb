@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'clients/new'
-
-  get 'client/new'
+  resources :clients
 
   resources :vids
 
@@ -42,6 +40,10 @@ Rails.application.routes.draw do
   resources :products do
     get :who_bought, on: :member
   end
+
+  get 'clients/new'
+
+  get 'client/new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
