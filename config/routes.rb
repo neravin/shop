@@ -2,13 +2,18 @@ Rails.application.routes.draw do
   
 
   resources :clients
-
+  resources :sessions, only: [:new, :create, :destroy]
   resources :categories
-
-
   resources :vids
-
   resources :bodies
+  resources :users
+  resources :orders
+  resources :line_items
+  resources :carts
+
+  match '/registration', to: 'clients#new' , via: 'get'
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
 
   get 'admin' => 'admin#index'
   controller :session do
@@ -17,23 +22,11 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
-
   get 'session/create'
-
   get 'session/destroy'
   
   get 'store/composition'
-
-  resources :users
-
-  resources :orders
-
-  resources :line_items
-
-  resources :carts
-
   get 'store/index'
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -46,7 +39,9 @@ Rails.application.routes.draw do
   end
 
   #get 'clients/new'
-  match '/registration', to: 'clients#new' , via: 'get'
+  
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
