@@ -3,7 +3,10 @@
 <% end %>
 
 <h1>Your Catalog</h1>
+
   <a href = "#">sign in</a>
+  <%= link_to "registration", controller: "clients", action: "new" %>
+
   <% cache ['store', Product.latest] do %>
     <% @products.each do |product| %>
     <% cache ['entry', product] do %>

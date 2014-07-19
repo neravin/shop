@@ -45,9 +45,8 @@ Rails.application.routes.draw do
     get :who_bought, on: :member
   end
 
-  get 'clients/new'
-
-  get 'client/new'
+  #get 'clients/new'
+  match '/registration', to: 'clients#new' , via: 'get'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
