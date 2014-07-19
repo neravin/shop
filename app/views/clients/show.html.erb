@@ -1,0 +1,10 @@
+<p>
+  <strong>Name:</strong>
+  <%= @client.name %>
+  <%= gravatar_for @client %>
+  <strong>Email:</strong>
+  <%= @client.email %>
+</p>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', client_path %>

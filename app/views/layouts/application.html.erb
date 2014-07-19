@@ -12,6 +12,11 @@
 	<%= @page_title || "Sport Eat" %>
 
     </div>
+
+    <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+    <% end %>
+
     <div id="columns">
 	  <div id="side">
 	      <div id="cart"> 
