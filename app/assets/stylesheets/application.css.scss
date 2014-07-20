@@ -10,10 +10,50 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require reset
+ *= require nervs_framework
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
+@font-face {
+    font-family: 'alex_brushregular';
+    src: url('alexbrush-regular-webfont.eot');
+    src: url('alexbrush-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('alexbrush-regular-webfont.svg'),
+         url('alexbrush-regular-webfont.woff') format('woff'),
+         url('alexbrush-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'roseregular';
+    src: url('rose-webfont.eot');
+    src: url('rose-webfont.eot?#iefix') format('embedded-opentype'),
+         url('rose-webfont.svg') format('svg'),
+         url('rose-webfont.woff') format('woff'),
+         url('rose-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'lobster_1.3regular';
+    src: url('lobster_1.3-webfont.eot');
+    src: url('lobster_1.3-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lobster_1.3-webfont.svg') format('svg'),
+         url('lobster_1.3-webfont.woff') format('woff'),
+         url('lobster_1.3-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 #banner {
     background: #9c9;
@@ -90,7 +130,7 @@
   
 }
 
-.depot_form {
+/*.depot_form {
     fieldset {
 	 background: #efe;
 	 legend {
@@ -119,6 +159,6 @@
 	    display: none
 	  }
      }
-}
+}*/
 
 

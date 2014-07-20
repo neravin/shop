@@ -16,22 +16,22 @@
   <legend>Введите сведения о пользователе</legend>
 
   <div class="field">
-    <%= f.label :name, 'Name:' %>
+    <%= f.label :name, 'Name:' %><br>
     <%= f.text_field :name, size: 40 %>
   </div>
 
   <div class="field">
-    <%= f.label :password, 'Пароль:' %>:
+    <%= f.label :password, 'Пароль:' %><br>
     <%= f.password_field :password, size: 40 %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, 'Подтверждение:' %>:
+    <%= f.label :password_confirmation, 'Подтверждение:' %><br>
     <%= f.password_field :password_confirmation, size: 40 %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "button middle_green"%>
   </div>
 
   </fieldset>
