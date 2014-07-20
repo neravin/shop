@@ -35,12 +35,12 @@
         </ul>
           <% if signed_in? %>
             <li><%= link_to "Profile", current_client %></li>
-            <li><%= link_to "Settings", '#' %></li>
+            <%= link_to "Settings", edit_client_path(current_client) %>
             <li>
                 <%= link_to "Sign out", signout_path, method: "delete" %>
             </li>
           <% else %>
-            <li><a href = "#">sign in</a></li>
+            <li><%= link_to "signin", signin_path %></li>
             <li><%= link_to "registration", controller: "clients", action: "new" %></li>
             
           <% end %>

@@ -1,12 +1,28 @@
 class ClientsController < ApplicationController
   skip_before_action :authorize#, only: :composition
-  before_action :set_client, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_client, only: [:show, :edit, :update]
+  before_action :correct_client,   only: [:show, :edit, :update]
+
   # GET /clients/new
   def new
     @client = Client.new
   end
 
+  def edit
+  end
+
   def show
+  end
+
+  def update
+    @client = Client.find(params[:id])
+    if @client.update_attributes(client_params)
+      # Handle a successful update.
+      flash[:success] = "Профиль обновлён"
+      redirect_to @client
+    else
+      render 'edit'
+    end
   end
 
   # POST /clients
@@ -35,5 +51,19 @@ class ClientsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
       params.require(:client).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    # Before filters
+
+    def signed_in_client
+      unless signed_in?
+        store_location
+        redirect_to signin_path, notice: "Please sign in." unless signed_in?
+      end
+    end
+
+    def correct_client
+      @client = Client.find(params[:id])
+      redirect_to(store_path) unless current_client?(@client)
     end
 end
