@@ -30,5 +30,12 @@
   <%= @product.price %>
 </p>
 
+<p>
+  <strong>Category</strong>
+  <% @product.categories.each do |category| %><br>
+  <%= category.title %><br>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

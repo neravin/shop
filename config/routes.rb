@@ -24,15 +24,26 @@ Rails.application.routes.draw do
 
   get 'session/create'
   get 'session/destroy'
-  
-  get 'store/composition'
+
+  resources :users
+
+  resources :orders
+
+  resources :line_items
+
+  resources :carts
+
   get 'store/index'
+
+  get 'home/index'
+  get 'category/show'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root to: 'store#index', as: 'store'
+  root to: 'home#index', as: 'home'
   
   resources :products do
     get :who_bought, on: :member
