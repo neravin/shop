@@ -131,3 +131,14 @@ h1, h2, h3, h4, h5, h6{
 h1{
   color: #8A8A8A;
 }
+
+#menu-horizontal{
+  background: $dark-blue;
+  color: white;
+  a{
+    color: white;
+    &:hover{
+      color: $light-blue;
+    }
+  }
+}

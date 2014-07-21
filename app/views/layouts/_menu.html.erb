@@ -1,31 +1,25 @@
-<div id="side">
-  <div id="cart"> 
-    <% if @cart %>
-      <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
-        <%= render @cart %>
-      <% end %>
-    <% end %>
-  </div>
-        
-  <ul>
+<div id="menu-horizontal" class="clearfix">
+
+  <ul class = "left">
     <li><%= link_to 'Home', home_path %></li>
     <li><%= link_to 'Catalog', store_index_path %></li>
     <li><a href="http://www..../faq">Questions</a></li> 
     <li><a href="http://www..../news">News</a></li>
     <li><a href="http://www..../contact">Contact</a></li>
-    </ul>
-      <% if signed_in? %>
-        <li><%= link_to "Profile", current_client %></li>
-        <li><%= link_to "Settings", edit_client_path(current_client) %></li>
-        <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
-      <% else %>
-        <li><%= link_to "signin", signin_path %></li>
-        <li><%= link_to "registration", controller: "clients", action: "new" %></li>
-      <% end %>
+  </ul>
+  <ul class="right">
+    <% if signed_in? %>
+      <li><%= link_to "", signout_path, method: "delete", class: "fa fa-sign-out" %></li>
+      <li><%= link_to "", edit_client_path(current_client), class: "fa fa-pencil-square-o" %></li>
+      <li><%= link_to "", current_client, class: "fa fa-user" %></li>
+    <% else %>
+      <li><%= link_to "", signin_path, class: "fa fa-sign-in" %></li>
+      <li><%= link_to "", new_client_path, class: "fa fa-pied-piper-alt" %></li>
+    <% end %>
   </ul>
      
   <% if session[:user_id] %>
-    <ul>
+    <ul class="right">
       <li><%= link_to 'Orders', orders_path %></li>
       <li><%= link_to 'Products', products_path %></li>
       <li><%= link_to 'Users', users_path %></li>
@@ -33,4 +27,4 @@
     </ul>
     <%= button_to 'Logout', logout_path, method: :delete %>
   <% end %>
-</div>
+</div><!--/menu-horizontal-->

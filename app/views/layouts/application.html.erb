@@ -5,30 +5,36 @@
   <%= stylesheet_link_tag "application", media: "all","data-turbolinks-track" => true %>
   <%= javascript_include_tag "application","data-turbolinks-track" => true %>
   <%= csrf_meta_tag %>
-
 </head>
-  <body class="<%= controller.controller_name %>">
-    <%= render 'layouts/header' %>
 
-    <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-    <% end %>
+<body class="<%= controller.controller_name %>">
+  <%= render 'layouts/header' %>
 
-    <section id = "grid-main">
-    <div id="grid-wrap-menu" class="grid-wrap clearfix">
-      <div class="pseudo">
-        <div class = "pseudo2 clearfix">
-    
-          <div id="columns">
-            <%= render 'layouts/menu' %>
-            <%= yield %>
-            <%= debug(params) if Rails.env.development? %>
-          </div><!--/columns-->
+  <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+  <% end %>
 
-        </div><!--/pseudo2-->
-      </div><!--/pseudo-->
-    </div><!--/grid-main-->
-    </section><!--/grid-wrap-->
+  <section id = "grid-main">
+  <div id="grid-wrap-menu" class="grid-wrap clearfix">
+    <div class="pseudo">
+      <div class = "pseudo2 clearfix">
+        <%= render 'layouts/menu' %>
+        <div id="columns">
+          <div id="cart"> 
+            <% if @cart %>
+              <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+                <%= render @cart %>
+              <% end %>
+            <% end %>
+          </div>
+          <%= yield %>
+          <%= debug(params) if Rails.env.development? %>
+        </div><!--/columns-->
 
-  </body>
+      </div><!--/pseudo2-->
+    </div><!--/pseudo-->
+  </div><!--/grid-main-->
+  </section><!--/grid-wrap-->
+
+</body>
 </html>
