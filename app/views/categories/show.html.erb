@@ -1,9 +1,39 @@
 <p id="notice"><%= notice %></p>
 
+<% @category.products.each do |product| %><br>
 <p>
   <strong>Title:</strong>
-  <%= @category.title %>
+  <%= product.title %>
 </p>
+
+<p>
+  <strong>Ptip:</strong>
+  <%= product.ptip %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= product.description %>
+</p>
+
+<p>
+  <strong>Composition:</strong>
+  <%= product.composition %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= product.image_url %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= product.price %>
+</p>
+
+
+<% end %>
+
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
