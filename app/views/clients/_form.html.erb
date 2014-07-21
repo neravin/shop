@@ -16,27 +16,27 @@
   <legend>Введите сведения о пользователе</legend>
 
   <div class="field">
-    <%= f.label :name, 'Name:' %>
-    <%= f.text_field :name, size: 40 %>
+    <%= f.label :name, 'Name:' %><br>
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :email, 'Email:' %>
+    <%= f.label :email, 'Email:' %><br>
     <%= f.text_field :email %>
   </div>
 
   <div class="field">
-    <%= f.label :password, 'Пароль:' %>:
-    <%= f.password_field :password, size: 40 %>
+    <%= f.label :password, 'Пароль:' %><br>
+    <%= f.password_field :password%>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, 'Подтверждение:' %>:
-    <%= f.password_field :password_confirmation, size: 40 %>
+    <%= f.label :password_confirmation, 'Подтверждение:' %><br>
+    <%= f.password_field :password_confirmation%>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "button middle_green" %>
   </div>
 
   </fieldset>

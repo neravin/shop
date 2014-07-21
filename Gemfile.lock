@@ -41,6 +41,8 @@ GEM
     coffee-script-source (1.7.0)
     erubis (2.7.0)
     execjs (2.0.2)
+    font-awesome-sass (4.1.0)
+      sass (~> 3.2)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.0.7)
@@ -125,6 +127,7 @@ DEPENDENCIES
   bcrypt-ruby
   coffee-rails (= 4.0.1)
   execjs
+  font-awesome-sass
   jbuilder (= 2.0.7)
   jquery-rails (= 3.1.0)
   jquery-ui-rails

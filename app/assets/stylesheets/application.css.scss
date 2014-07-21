@@ -10,23 +10,49 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require reset
+ *= require nervs_framework
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
+@font-face {
+    font-family: 'alex_brushregular';
+    src: url('alexbrush-regular-webfont.eot');
+    src: url('alexbrush-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('alexbrush-regular-webfont.svg'),
+         url('alexbrush-regular-webfont.woff') format('woff'),
+         url('alexbrush-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 
-#banner {
-    background: #9c9;
-    padding: 10px;
-    border-bottom: 2px solid;
-    font: small-caps 40px/40px "Times New Roman", serif;
-    color: #282;
-    text-align: center;
-    img {
-      float: left;
-      
-    }
-  
+}
+
+
+@font-face {
+    font-family: 'roseregular';
+    src: url('rose-webfont.eot');
+    src: url('rose-webfont.eot?#iefix') format('embedded-opentype'),
+         url('rose-webfont.svg') format('svg'),
+         url('rose-webfont.woff') format('woff'),
+         url('rose-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'lobster_1.3regular';
+    src: url('lobster_1.3-webfont.eot');
+    src: url('lobster_1.3-webfont.eot?#iefix') format('embedded-opentype'),
+         url('lobster_1.3-webfont.svg') format('svg'),
+         url('lobster_1.3-webfont.woff') format('woff'),
+         url('lobster_1.3-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 #notice {
@@ -38,87 +64,4 @@
       font: bold smaller sans-serif;
   
 }
-
-#columns {
-      background: #141;
-      #main {
-      margin-left: 17em;
-      padding: 1em;
-      background: white;
-	
-      }
-      #side {
-      float: left;
-      padding: 1em 2em;
-      width: 13em;
-      background: #141;
-      
-      form, div   {
-	display: inline;
-      }
-      
-      input {
-	font-size: small;
-      }
-      
-      #cart {
-	      font-size: smaller;
-	      color: white;
-	      
-	      table {
-		border-top: 1px dotted #595;
-		border-bottom: 1px dotted #595;
-		margin-bottom: 10px;
-	      }
-      }
-      
-      ul {
-	padding: 0;
-	li {
-	   list-style: none;
-	   a {
-	     color: #bfb;
-	     font-size: small;
-	     
-	  }
-	  
-	}
-	
-      }
-	
-      }
-  
-}
-
-.depot_form {
-    fieldset {
-	 background: #efe;
-	 legend {
-	    color: #dfd;
-	    background: #141;
-	    font-family: sans-serif;
-	    padding: 0.2em 1em;
-	  }
-    }
-    form {
-	  label {
-	    width: 5em;
-	    float: left;
-	    text-align: right;
-	    padding-top: 0.2em;
-	    margin-right: 0.1em;
-	    display: block;
-	  }
-	  select, textarea, input {
-	    margin-left: 0.5em;
-	  }
-	  .submit {
-	    margin-left: 4em;
-	  }
-	  br {
-	    display: none
-	  }
-     }
-}
-
 

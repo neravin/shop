@@ -1,0 +1,44 @@
+@import "palette";
+@import "function";
+
+header{
+  //background: $dark-blue;
+  //padding: 10px;
+  //position: relative;
+}
+#logo{
+  display: block;
+  z-index: 2;
+  //margin-top: 20px;
+  font-family: 'alex_brushregular';
+  //font-family: 'roseregular';
+  //font-style: italic;
+  //text-transform: lowercase;
+  //font-variant: small-caps;
+  font-size: em(44);
+  //font-weight: 700;
+  line-height: 1.2;
+  float: left;
+  color: $light-green;
+  background: white ;
+  //background: rgb(214, 245, 242);
+  padding-right: 30px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  padding-top: 10px
+}
+
+/*#logo:before{
+  content: "";
+  display: block;
+  width: 300%;
+  height:  62px;
+  background: $light-green;
+  //background: rgb(214, 245, 242);
+  position: absolute;
+  top: 0px;
+  left: -300%;
+}*/

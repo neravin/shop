@@ -18,6 +18,7 @@ gem 'jbuilder', '2.0.7'
 gem 'execjs'
 gem 'therubyracer'
 gem 'bcrypt-ruby'
+gem 'font-awesome-sass'
 
 group :doc do
   gem 'sdoc', '0.4.0', require: false

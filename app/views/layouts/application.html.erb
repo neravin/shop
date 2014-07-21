@@ -1,67 +1,40 @@
- <!DOCTYPE html>
- <html>
- <head>
-      <title>Sport Eat Online Store</title>
-      <%= stylesheet_link_tag "application", media: "all","data-turbolinks-track" => true %>
-      <%= javascript_include_tag "application","data-turbolinks-track" => true %>
-      <%= csrf_meta_tag %>
- </head>
- <body class="<%= controller.controller_name %>">
-    <div id="banner">
-	<%= image_tag("logo.png") %>
-	<%= @page_title || "Sport Eat" %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shop</title>
+  <%= stylesheet_link_tag "application", media: "all","data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application","data-turbolinks-track" => true %>
+  <%= csrf_meta_tag %>
+</head>
 
-    </div>
+<body class="<%= controller.controller_name %>">
+  <%= render 'layouts/header' %>
 
-    <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-    <% end %>
+  <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+  <% end %>
 
-    <div id="columns">
-	  <div id="side">
-	      <div id="cart"> 
-		<% if @cart %>
-		  <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
-		    <%= render @cart %>
-		  <% end %>
-		<% end %>
-	      </div>
-	      
-	      <ul>
-		  <li><%= link_to 'Home', home_path %></li>
-		  <li><a href="http://www..../faq">Questions</a></li>	
-		  <li><a href="http://www..../news">News</a></li>
-		  <li><a href="http://www..../contact">Contact</a></li>
-        </ul>
-          <% if signed_in? %>
-            <li><%= link_to "Profile", current_client %></li>
-            <%= link_to "Settings", edit_client_path(current_client) %>
-            <li>
-                <%= link_to "Sign out", signout_path, method: "delete" %>
-            </li>
-          <% else %>
-            <li><%= link_to "signin", signin_path %></li>
-            <li><%= link_to "registration", controller: "clients", action: "new" %></li>
-            
-          <% end %>
+  <section id = "grid-main">
+  <div id="grid-wrap-menu" class="grid-wrap clearfix">
+    <div class="pseudo">
+      <div class = "pseudo2 clearfix">
+        <%= render 'layouts/menu' %>
+        <div id="columns">
+          <div id="cart"> 
+            <% if @cart %>
+              <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+                <%= render @cart %>
+              <% end %>
+            <% end %>
+          </div>
+          <%= yield %>
+          <%= debug(params) if Rails.env.development? %>
+        </div><!--/columns-->
 
-		  <li><%= link_to 'Catalog', store_index_path %></li>
-	      </ul>
-	   
-	      <% if session[:user_id] %>
-		  <ul>
-		      <li><%= link_to 'Orders', orders_path %></li>
-		      <li><%= link_to 'Products', products_path %></li>
-		      <li><%= link_to 'Users', users_path %></li>
-		      <li><%= link_to 'Categories', categories_path %></li>
-		  </ul>
-		  <%= button_to 'Logout', logout_path, method: :delete %>
-	      <% end %>
-	  </div>
-	  <div id="main">
-	      <%= yield %>
-        <%= debug(params) if Rails.env.development? %>
-	  </div>
-    </div>
- </body>
- </html>
+      </div><!--/pseudo2-->
+    </div><!--/pseudo-->
+  </div><!--/grid-main-->
+  </section><!--/grid-wrap-->
+
+</body>
+</html>
