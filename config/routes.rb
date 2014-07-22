@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :line_items
   resources :carts
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   match '/registration', to: 'clients#new' , via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'

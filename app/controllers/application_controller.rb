@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   protected
-      def authorize
-        unless User.find_by(id: session[:user_id])
+    def authorize
+      unless User.find_by(id: session[:user_id])
         redirect_to login_url, notice: "Пожалуйста, пройдите авторизацию"
       end
     end

@@ -18,10 +18,14 @@ class Client < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
 
+  def generate_password_reset_token!
+    update_attribute(:password_reset_token, SecureRandom.urlsafe_base64(48))
+  end
   
   private
 
     def create_remember_token
       self.remember_token = Client.encrypt(Client.new_remember_token)
+    
     end
 end
