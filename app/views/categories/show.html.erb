@@ -33,7 +33,11 @@
 
 
 <% end %>
+ 
+
+<% if @is_admin %>
+	<%= link_to 'Edit', edit_category_path(@category) %> 
+	<%= link_to 'Back', categories_path %>
+<% end %>
 
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
