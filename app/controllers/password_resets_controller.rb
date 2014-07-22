@@ -7,6 +7,7 @@ class PasswordResetsController < ApplicationController
     client = Client.find_by(email: params[:email])
     if client
       client.generate_password_reset_token!
+      client.update_attribute(:password_reset_sent_at, Time.zone.now)
       Notifier.password_reset(client).deliver
       flash[:success] = "Инструкции по восстановлению пароля отправлены на почту"
       redirect_to home_path
@@ -26,7 +27,9 @@ class PasswordResetsController < ApplicationController
 
   def update
     @client = Client.find_by(password_reset_token: params[:id])
-    if @client && @client.update_attributes(client_params)
+    if @client.password_reset_sent_at < 2.hours.ago
+      redirect_to new_password_reset_path, :alert => "Срок восстановления пароля истёк"
+    elsif @client && @client.update_attributes(client_params)
       @client.update_attribute(:password_reset_token, nil)
       sign_in @client
       redirect_to home_path, success: "Ваш пароль упешно изменен" 
