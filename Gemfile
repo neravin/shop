@@ -19,6 +19,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'bcrypt-ruby'
 gem 'font-awesome-sass'
+gem 'state_machine'
 
 group :doc do
   gem 'sdoc', '0.4.0', require: false

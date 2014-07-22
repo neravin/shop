@@ -16,10 +16,34 @@ class Client < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
 
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6, maximum: 50 }, :if => :validate_password?
 
   def generate_password_reset_token!
     update_attribute(:password_reset_token, SecureRandom.urlsafe_base64(48))
+  end
+
+  def validate_password?
+    password.present? || password_confirmation.present?
+  end
+
+  States = {
+    :inactive => 0,
+    :active => 1,
+    :douchebaggish => 2,
+  }
+
+  state_machine :state, :initial => :inactive do
+    States.each do |name, value|
+      state name, :value => value
+    end
+
+    event :activate do
+      transition all => :active
+    end
+
+    event :mark_douchebaggish do
+      transition all => :douchebaggish
+    end
   end
   
   private
