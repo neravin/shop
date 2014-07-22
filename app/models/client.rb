@@ -16,15 +16,13 @@ class Client < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
 
   has_secure_password
-  validates :password, length: { minimum: 6, maximum: 50 }, :if => :validate_password?
+  validates :password, length: { minimum: 6, maximum: 50 }
 
   def generate_password_reset_token!
     update_attribute(:password_reset_token, SecureRandom.urlsafe_base64(48))
   end
 
-  def validate_password?
-    password.present? || password_confirmation.present?
-  end
+
 
   States = {
     :inactive => 0,
@@ -32,7 +30,7 @@ class Client < ActiveRecord::Base
     :douchebaggish => 2,
   }
 
-  state_machine :state, :initial => :inactive do
+  state_machine :state, :initial => :inactive,  :action => :bypass_validation do
     States.each do |name, value|
       state name, :value => value
     end
@@ -43,6 +41,14 @@ class Client < ActiveRecord::Base
 
     event :mark_douchebaggish do
       transition all => :douchebaggish
+    end
+  end
+
+  def bypass_validation
+    if self.changed == ['state']
+      save!(:validate => false)
+    else
+      save!(:validate => true)
     end
   end
   
