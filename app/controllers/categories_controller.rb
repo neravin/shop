@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  skip_before_action :authorize, only: [:show ] 
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
@@ -10,6 +11,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @is_admin = session_nil
   end
 
   # GET /categories/new
@@ -61,14 +63,22 @@ class CategoriesController < ApplicationController
     end
   end
 
+  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Category.find(params[:id])
     end
 
+    def session_nil
+       !session[:user_id].nil? 
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
       params.require(:category).permit(:title)
     end
+
+
 end
