@@ -4,7 +4,7 @@
 
 <h1>Your Catalog</h1>
 
-  <%= search_form_for @search do |f| %>
+  <%= search_form_for @search, url: store_index_path do |f| %>
       <div class="field">
         <%= f.label :title_cont, "Name contains" %>
         <%= f.text_field :title_cont %>

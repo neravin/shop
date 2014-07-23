@@ -3,9 +3,9 @@ class StoreController < ApplicationController
   include CurrentCart
   before_action :set_cart
   def index
-    @products = Product.order(:title)
+    #@products = Product.order(:title)
     @search = Product.search(params[:q])
-    @products = @search.result
+    @products = @search.result(distinct: true)
     @categories = Category.all
     
   end
