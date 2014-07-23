@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :line_items
   resources :carts
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :activation_client, only: [:edit, :update]
 
   match '/registration', to: 'clients#new' , via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'

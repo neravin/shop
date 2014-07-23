@@ -29,9 +29,10 @@ class ClientsController < ApplicationController
   # POST /clients.json
   def create
     @client = Client.new(client_params)
-
     respond_to do |format|
       if @client.save
+        @client.generate_confirm!
+        ConfirmationNotifier.confirmation_token(@client).deliver
         flash[:success] = "Добро пожаловать в интернет магазин";
         format.html { redirect_to clients_url, notice: "Пользователь #{@client.name} был успешно создан." }
         format.json { render :show, status: :created, location: @client }

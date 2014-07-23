@@ -22,7 +22,13 @@ class Client < ActiveRecord::Base
     update_attribute(:password_reset_token, SecureRandom.urlsafe_base64(48))
   end
 
+  def generate_password_confirmation_token!
+    update_attribute(:confirmation_token, SecureRandom.urlsafe_base64(48))
+  end
 
+  def generate_confirm!
+    update_attributes(:confirmation_token => SecureRandom.urlsafe_base64(48), :confirmation_token_sent_at => Time.zone.now)
+  end
 
   States = {
     :inactive => 0,

@@ -12,6 +12,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @is_admin = session_nil
+    @search = @category.products.search(params[:q])
+    @products = @search.result(distinct: true)
   end
 
   # GET /categories/new

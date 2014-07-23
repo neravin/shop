@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722171222) do
+ActiveRecord::Schema.define(version: 20140723115642) do
 
   create_table "bodies", force: true do |t|
     t.string   "pol"
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 20140722171222) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.integer  "state"
+    t.string   "confirmation_token"
+    t.datetime "confirmation_token_sent_at"
   end
 
   add_index "clients", ["email"], name: "index_clients_on_email", unique: true
