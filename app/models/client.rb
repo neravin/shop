@@ -43,16 +43,16 @@ class Client < ActiveRecord::Base
       transition all => :douchebaggish
     end
   end
-
-  def bypass_validation
-    if self.changed == ['state']
-      save!(:validate => false)
-    else
-      save!(:validate => true)
-    end
-  end
   
   private
+
+    def bypass_validation
+      if self.changed == ['state']
+        save!(:validate => false)
+      else
+        save!(:validate => true)
+      end
+    end
 
     def create_remember_token
       self.remember_token = Client.encrypt(Client.new_remember_token)

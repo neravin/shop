@@ -4,6 +4,20 @@
 
 <h1>Your Catalog</h1>
 
+  <%= search_form_for @search do |f| %>
+      <div class="field">
+        <%= f.label :title_cont, "Name contains" %>
+        <%= f.text_field :title_cont %>
+      </div>
+      <div class="field">
+        <%= f.label :price_gteq, "Price between" %>
+        <%= f.text_field :price_gteq %>
+        <%= f.label :price_lteq, "and" %>
+        <%= f.text_field :price_lteq %>
+      </div>
+      <div class="actions"><%= f.submit "Search" %></div>
+  <% end %>
+
   <p>
   <strong>Category</strong>
   <% @categories.each do |category| %><br>
@@ -13,6 +27,9 @@
   <% end %>
 </p>
 	
+  <li> <%= sort_link @search, :title, "Product Name" %></li>
+  <li><%= sort_link @search, :price, "Price" %></li>
+
   <% cache ['store', Product.latest] do %>
     <% @products.each do |product| %>
     <% cache ['entry', product] do %>
