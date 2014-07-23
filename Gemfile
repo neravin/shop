@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.0.0'
 
 
 gem 'rails', '4.1.0'
@@ -19,6 +19,8 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'bcrypt-ruby'
 gem 'font-awesome-sass'
+gem 'ransack'
+
 
 group :doc do
   gem 'sdoc', '0.4.0', require: false
