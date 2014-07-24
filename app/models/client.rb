@@ -36,6 +36,10 @@ class Client < ActiveRecord::Base
     :douchebaggish => 2,
   }
 
+  def self.delete_clients
+    Client.where(state: 0).where("created_at < ?", 24.hours.ago).destroy_all
+  end
+
   state_machine :state, :initial => :inactive,  :action => :bypass_validation do
     States.each do |name, value|
       state name, :value => value
