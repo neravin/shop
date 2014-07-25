@@ -17,6 +17,18 @@
  *= require font-awesome
  */
 
+ *, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+ }
+
+ body, html {
+    font-size: 100%; 
+    padding: 0;
+    margin: 0;
+ }
+
 @font-face {
     font-family: 'alex_brushregular';
     src: url('alexbrush-regular-webfont.eot');

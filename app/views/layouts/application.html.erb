@@ -19,7 +19,7 @@
     <div class="pseudo">
       <div class = "pseudo2 clearfix">
         
-        <div id="columns">
+        <div id="columns clearfix">
           <div id="cart"> 
             <% if @cart %>
               <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
@@ -28,9 +28,8 @@
             <% end %>
           </div>
           <%= yield %>
-          <%= debug(params) if Rails.env.development? %>
         </div><!--/columns-->
-
+        <%= debug(params) if Rails.env.development? %>
       </div><!--/pseudo2-->
     </div><!--/pseudo-->
   </div><!--/grid-main-->

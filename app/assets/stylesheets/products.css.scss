@@ -1,7 +1,60 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
- .products {
+@import "palette";
+.category{
+  float: left;
+  width: 15%;
+  h3{
+    font-family: 'pt_sans_narrowbold';
+    color: $light-green;
+  }
+  a{
+    color: $light-green-strong;
+    line-height: 1.2em;
+  }
+}
+
+.list-products{
+  float: right;
+  width: 85%;
+  .pseudo-list-products{
+    border-left: 3px solid #007095;
+    border-right: 3px solid #007095;
+    padding: 0 20px;
+    padding-right: 0px;
+
+    ul{
+      display: block;
+      position: relative;
+      li{
+        width: 33%;
+        text-align: center;
+        padding: 25px;
+        margin: 20px 0 0;
+        display: inline-block;
+        min-height: 420px;
+        vertical-align: top;
+        position: relative;
+        h3{
+          color: #47a3da;
+        }
+        .price{
+          color: #c0c0c0;
+        }
+        .details{
+          color: #47a3da;
+          max-width: 300px;
+          min-height: 70px;
+          margin: 0 auto;
+        }
+      }
+
+    }
+  }
+}
+
+.products {
    table {
      border-collapse: collapse;
      

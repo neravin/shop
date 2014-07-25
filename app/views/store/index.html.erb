@@ -2,47 +2,57 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<h1>Your Catalog</h1>
-
+  <%#
   <%= search_form_for @search, url: store_index_path do |f| %>
-      <div class="field">
+  <%#    <div class="field">
         <%= f.label :title_cont, "Name contains" %>
-        <%= f.text_field :title_cont %>
-      </div>
+  <%#      <%= f.text_field :title_cont %>
+  <%#    </div>
       <div class="field">
         <%= f.label :price_gteq, "Price between" %>
-        <%= f.text_field :price_gteq %>
-        <%= f.label :price_lteq, "and" %>
-        <%= f.text_field :price_lteq %>
-      </div>
+  <%#      <%= f.text_field :price_gteq %>
+  <%#     <%= f.label :price_lteq, "and" %>
+  <%#      <%= f.text_field :price_lteq %>
+  <%#    </div>
       <div class="actions"><%= f.submit "Search" %></div>
-  <% end %>
+  <%#<% end %>
 
-  <p>
-  <strong>Category</strong>
-  <% @categories.each do |category| %><br>
-  <%= link_to(category) do %>
-  <strong><%= category.title %></strong>
+<div class = "category clearfix">
+  <h3>Категории:</h3>
+  <% @categories.each do |category| %>
+    <%= link_to(category) do %>
+      <%= category.title %><br>
+    <% end %>
   <% end %>
-  <% end %>
-</p>
-	
-  <li> <%= sort_link @search, :title, "Product Name" %></li>
-  <li><%= sort_link @search, :price, "Price" %></li>
+  <br>
+  <h3>Сортировать по:</h3>
+  <%= sort_link @search, :title, "Product Name" %><br>
+  <%= sort_link @search, :price, "Price" %>
+</div><!--/category-->
 
+
+<div class="list-products">
+<div class="pseudo-list-products">
+  <ul>
   <% cache ['store', Product.latest] do %>
     <% @products.each do |product| %>
-    <% cache ['entry', product] do %>
-	<div class="entry">
-	    <%= image_tag(product.image_url) %>
-	    <h3><%= product.title %></h3>
-	    <%= sanitize(product.description) %>
-	    <div class="price_line">
-    		<span class="price"><%= number_to_currency(product.price) %></span>
-    		<%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
-		
-	    </div>
-	</div>
+      <% cache ['entry', product] do %>
+    	<li>
+
+    	    <%= image_tag(product.image_url) %>
+    	    <h3><%= product.title %></h3>
+
+    	    <div class="price">
+            <%= number_to_currency(product.price) %>
+    	    </div><!--/price_line-->
+          <div class="details">
+            <%= sanitize(product.description) %>
+          </div>
+          <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true, class: "button middle_green" %>
+    	</li><!--/entry-->
+      <% end %>
     <% end %>
-    <% end %>
-<% end %>
+  <% end %>
+  </ul>
+</div><!--/pseudo-list-products-->
+</div><!--/list-products-->
