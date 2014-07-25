@@ -1,0 +1,12 @@
+<div class = "category clearfix">
+  <h3>Категории:</h3>
+  <% @categories.each do |category| %>
+    <%= link_to(category) do %>
+      <%= category.title %><br>
+    <% end %>
+  <% end %>
+  <br>
+  <h3>Сортировать по:</h3>
+  <%= sort_link @search, :title, "Product Name" %><br>
+  <%= sort_link @search, :price, "Price" %>
+</div><!--/category-->

@@ -2,9 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "palette";
+
+.search-products
+{
+  //border-bottom: 3px solid #007095;
+}
+
 .category{
   float: left;
   width: 15%;
+  margin-top: 50px;
   h3{
     font-family: 'pt_sans_narrowbold';
     color: $light-green;
@@ -53,6 +60,11 @@
     }
   }
 }
+
+
+
+
+
 
 .products {
    table {

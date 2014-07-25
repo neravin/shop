@@ -14,6 +14,7 @@ class CategoriesController < ApplicationController
     @is_admin = session_nil
     @search = @category.products.search(params[:q])
     @products = @search.result(distinct: true)
+    @categories = Category.all
   end
 
   # GET /categories/new
