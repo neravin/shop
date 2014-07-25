@@ -3,11 +3,11 @@
 
 #grid-wrap-menu{
   /*padding: 30px;*/
-  padding-bottom: 20px;
-  padding-top: 70px;
-  margin-bottom: 50px;
+  padding-bottom: em(20);
+  padding-top: em(20);
+  margin-bottom: em(50);
   .pseudo{
-    //padding-left: 15px;
+    padding: 0 em(10);
   }
 }
 
