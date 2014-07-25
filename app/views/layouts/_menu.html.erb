@@ -1,5 +1,5 @@
 <div id="menu-horizontal" class="clearfix">
-
+<div class="grid-wrap">
   <ul class = "left">
     <li><%= link_to 'Home', home_path %></li>
     <li><%= link_to 'Catalog', store_index_path %></li>
@@ -27,4 +27,5 @@
     </ul>
     <%= button_to 'Logout', logout_path, method: :delete %>
   <% end %>
+</div><!--/grid-wrap-->
 </div><!--/menu-horizontal-->
