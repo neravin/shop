@@ -89,9 +89,9 @@
   top: 270px; /*depends on p height*/
   border-radius: 30px;
   box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
-  color: #fff;
+  color: $middle-blue;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-  border: 8px solid rgba(255,255,255,0.8);
+  border: 8px solid rgba(0, 154, 205 ,0.7);
   padding: 2px 20px 0px;
   font-size: 18px;
   line-height: 30px;
@@ -175,7 +175,7 @@
   height: 20px;
   top: 5px;
   left: 5px;
-  background: transparent url(../images/arrows.png) no-repeat top left;
+  background: transparent url(/assets/arrows.png) no-repeat top left;
   border-radius: 50%;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
