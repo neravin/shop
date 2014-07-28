@@ -1,1 +1,52 @@
-<h1>Привет</h1>
+<div id = "da-slider" class="da-slider">
+
+  <div class="da-slide">
+    <h2>Some headline</h2>
+    <p>Some descriprion</p>
+    <a href="#" class = "da-link">Read more</a>
+    <div class="da-img">
+      <%= image_tag("2.png") %>
+    </div>
+  </div>
+
+  <div class="da-slide">
+    <h2>Some headline</h2>
+    <p>Some descriprion</p>
+    <a href="#" class = "da-link">Read more</a>
+    <div class="da-img">
+      <%= image_tag("3.png") %>
+    </div>
+  </div>
+
+  <div class="da-slide">
+    <h2>Some headline</h2>
+    <p>Some descriprion</p>
+    <a href="#" class = "da-link">Read more</a>
+    <div class="da-img">
+      <%= image_tag("4.png") %>
+    </div>
+  </div>
+
+  <div class="da-slide">
+    <h2>Some headline</h2>
+    <p>Some descriprion</p>
+    <a href="#" class = "da-link">Read more</a>
+    <div class="da-img">
+     <%= image_tag("5.png") %>
+    </div>
+  </div>
+
+  <nav class = "da-arrows">
+    <span class = "da-arrows-prev"></span>
+    <span class = "da-arrows-next"></span>
+  </nav>
+
+</div><!--/#slider-->
+<script type="text/javascript" src="/assets/jquery.cslider.js"></script>
+<script type="text/javascript">
+  $(function() {
+  
+    $('#da-slider').cslider();
+    
+  });
+</script> 
