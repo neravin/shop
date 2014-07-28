@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
   skip_before_action :authorize, only: [:show ] 
+  include CurrentCart
+  before_action :set_cart
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
