@@ -189,8 +189,8 @@
 			
 			if( this.options.autoplay ) {
 			
-				clearTimeout( this.slideshow );
-				this.options.autoplay	= false;
+				//clearTimeout( this.slideshow );
+				//this.options.autoplay	= true;
 			
 			}
 			
@@ -200,6 +200,66 @@
 		_loadEvents			: function() {
 			
 			var _self = this;
+
+			this.$slides.on({
+				mouseenter: function(){
+					if( _self.options.autoplay ) {
+						clearTimeout( _self.slideshow );
+					}
+				},
+				mouseleave: function(){
+					var default_interval = _self.options.interval;
+					if(_self.options.autoplay ) {
+						_self._startSlideshow();
+						_self.options.interval = default_interval;
+					}
+				}
+			});
+
+			this.$navNext.on({
+				mouseenter: function(){
+					if( _self.options.autoplay ) {
+						clearTimeout( _self.slideshow );
+					}
+				},
+				mouseleave: function(){
+					var default_interval = _self.options.interval;
+					if(_self.options.autoplay ) {
+						_self._startSlideshow();
+						_self.options.interval = default_interval;
+					}
+				}
+			});
+
+			this.$navPrev.on({
+				mouseenter: function(){
+					if( _self.options.autoplay ) {
+						clearTimeout( _self.slideshow );
+					}
+				},
+				mouseleave: function(){
+					var default_interval = _self.options.interval;
+					if(_self.options.autoplay ) {
+						_self._startSlideshow();
+						_self.options.interval = default_interval;
+					}
+				}
+			});
+
+			this.$pages.on({
+				mouseenter: function(){
+					if( _self.options.autoplay ) {
+						clearTimeout( _self.slideshow );
+					}
+				},
+				mouseleave: function(){
+					var default_interval = _self.options.interval;
+					if(_self.options.autoplay ) {
+						_self._startSlideshow();
+						_self.options.interval = default_interval;
+					}
+				}
+			});
 			
 			this.$pages.on( 'click.cslider', function( event ) {
 				
@@ -212,8 +272,8 @@
 				
 				if( _self.options.autoplay ) {
 				
-					clearTimeout( _self.slideshow );
-					_self.options.autoplay	= false;
+					//clearTimeout( _self.slideshow );
+					//_self.options.autoplay	= true;
 				
 				}
 				
@@ -227,8 +287,8 @@
 				
 				if( _self.options.autoplay ) {
 				
-					clearTimeout( _self.slideshow );
-					_self.options.autoplay	= false;
+					//clearTimeout( _self.slideshow );
+					//_self.options.autoplay	= true;
 				
 				}
 				
