@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723115642) do
+ActiveRecord::Schema.define(version: 20140729100007) do
 
   create_table "bodies", force: true do |t|
     t.string   "pol"
@@ -81,7 +81,10 @@ ActiveRecord::Schema.define(version: 20140723115642) do
     t.string   "pay_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "client_id"
   end
+
+  add_index "orders", ["client_id"], name: "index_orders_on_client_id"
 
   create_table "products", force: true do |t|
     t.string   "title"
