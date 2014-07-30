@@ -39,16 +39,23 @@ class OrdersController < ApplicationController
     @order.add_line_items_from_cart(@cart)
     
     respond_to do |format|
-      if @order.save
-        @order.update_attribute(:client_id, current_client.id)
-      	Cart.destroy(session[:cart_id])
-      	session[:cart_id] = nil
-      	OrderNotifier.received(@order).deliver
-      	format.html { redirect_to home_path, notice: 'Thank you for your order.' }
-        format.json { render :show, status: :created, location: @order }
+      if !@order.line_items.empty?
+        if @order.save
+          @order.update_attribute(:client_id, current_client.id)
+        	Cart.destroy(session[:cart_id])
+        	session[:cart_id] = nil
+        	OrderNotifier.received(@order).deliver
+        	format.html { redirect_to home_path, notice: 'Thank you for your order.' }
+          format.json { render :show, status: :created, location: @order }
+        else
+  	
+          format.html { render :new }
+          format.json { render json: @order.errors, status: :unprocessable_entity }
+        end
       else
-	
-        format.html { render :new }
+        format.html { 
+          redirect_to home_path, notice: "Корзина пуста. Попробуйте ещё раз"
+        }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
