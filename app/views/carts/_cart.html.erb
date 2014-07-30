@@ -1,9 +1,9 @@
 <h2>Your Cart</h2>
 <table>
 
-  <% if @is_order == 1 %>
+  <% if @is_order %>
     <%= render(cart.line_items) %>
-  <% end %>  
+  <% end %>
   <tr class="total_line">
     <td><%= cart.line_items.sum(:quantity) %></td>
 	  <td colspan="2">Total</td>

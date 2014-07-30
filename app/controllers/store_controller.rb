@@ -7,5 +7,6 @@ class StoreController < ApplicationController
     @search = Product.search(params[:q])
     @products = @search.result(distinct: true)
     @categories = Category.all
+    @carts = Cart.all
   end
 end

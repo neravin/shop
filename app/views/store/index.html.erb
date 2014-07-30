@@ -17,6 +17,10 @@
       <div class="actions"><%= f.submit "Search" %></div>
   <%#<% end %>
 
+<% @carts.each do |cart| %>
+  <%= cart.created_at %>  id = <%= cart.id %><br/>
+<% end %>
+
 <%= render 'categories/category_links' %>
 
 <%= render 'products/list' %>
