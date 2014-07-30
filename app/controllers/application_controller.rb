@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
 
   def session_nil
     if session[:user_id].nil? 
-  end 
-end
+    end 
+  end
   
   protected
     def authorize

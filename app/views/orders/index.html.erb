@@ -7,7 +7,6 @@
       <th>Adress</th>
       <th>Email</th>
       <th>Pay type</th>
-      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -18,11 +17,6 @@
         <td><%= order.adress %></td>
         <td><%= order.email %></td>
         <td><%= order.pay_type %></td>
-
-        <td><%= link_to '', edit_order_path(order), :class => "fa fa-pencil ", 
-          :style => "color: #196e76;" %></td>
-        <td><%= link_to '', order, method: :delete, data: { confirm: 'Are you sure?' }, :class => " fa fa-trash-o", 
-          :style => "color: #196e76;" %></td> 
       </tr>
     <% end %>
   </tbody>

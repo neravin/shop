@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <th>Артикул</th>
+    <th>Название</th>
+    <th>Количество</th>
+    <th>Сумма</th>
+  </thead>
+  
+  <tbody>
+
+    <% @order.line_items.each do |item| %>
+      <tr>
+        <td><%= item.product_id %></td>
+        <td><%= item.product.title %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.quantity*item.product.price %></td>
+      </tr>
+    <% end %>
+      <tr>
+        <td>Итого:</td>
+        <td colspan="2"></td>
+        <td><%= number_to_currency(@total) %></td>
+      </tr>
+  </tbody>
+
+</table>

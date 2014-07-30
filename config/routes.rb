@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   
 
-  resources :clients
+  resources :clients do
+    resources :orders, only: [:index]
+  end
   resources :sessions, only: [:new, :create, :destroy]
   resources :categories
   resources :vids
   resources :bodies
   resources :users
-  resources :orders
+  resources :orders, only: [:index, :show, :new, :create, :edit]
   resources :line_items
   resources :carts
   resources :password_resets, only: [:new, :create, :edit, :update]
@@ -28,8 +30,6 @@ Rails.application.routes.draw do
   get 'session/destroy'
 
   resources :users
-
-  resources :orders
 
   resources :line_items
 

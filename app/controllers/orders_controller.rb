@@ -13,6 +13,10 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @total = 0
+    @order.line_items.each do |item|
+      @total += (item.product.price * item.quantity )
+    end
   end
 
   # GET /orders/new
@@ -25,12 +29,11 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
-  # GET /orders/1/edit
-  def edit
-  end
+
 
   # POST /orders
   # POST /orders.json
+
   def create
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
@@ -41,7 +44,7 @@ class OrdersController < ApplicationController
       	Cart.destroy(session[:cart_id])
       	session[:cart_id] = nil
       	OrderNotifier.received(@order).deliver
-      	format.html { redirect_to store_url, notice: 'Thank you for your order.' }
+      	format.html { redirect_to home_path, notice: 'Thank you for your order.' }
         format.json { render :show, status: :created, location: @order }
       else
 	
@@ -51,9 +54,16 @@ class OrdersController < ApplicationController
     end
   end
 
+  
+  # GET /orders/1/edit
+  /
+  def edit
+  end
+  /
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
-  def update
+  
+  /def update
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
@@ -64,9 +74,10 @@ class OrdersController < ApplicationController
       end
     end
   end
-
+  /
   # DELETE /orders/1
   # DELETE /orders/1.json
+  /
   def destroy
     @order.destroy
     respond_to do |format|
@@ -74,6 +85,7 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  /
 
   private
     # Use callbacks to share common setup or constraints between actions.
