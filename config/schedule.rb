@@ -23,6 +23,10 @@
 set :environment, "development"
 set :output, {:error => "log/error.log", :standard => "log/cron.log"}  
 
-every 15.minutes do
+every 24.hours do
   runner "Client.delete_clients"
+end
+
+every 2.days do
+  runner "Cart.delete_carts"
 end
