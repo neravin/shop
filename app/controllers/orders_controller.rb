@@ -41,7 +41,10 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if !@order.line_items.empty?
         if @order.save
-          @order.update_attribute(:client_id, current_client.id)
+
+          if current_client
+            @order.update_attribute(:client_id, current_client.id)
+          end
         	Cart.destroy(session[:cart_id])
         	session[:cart_id] = nil
         	OrderNotifier.received(@order).deliver
