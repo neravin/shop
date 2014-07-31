@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   resources :vids
   resources :bodies
   resources :users
-  resources :orders, only: [:index, :show, :new, :create, :edit]
+  resources :orders, only: [:index, :show, :new, :create, :edit] do
+    collection do
+      patch  'change_qty'
+    end
+  end
   resources :line_items
   resources :carts
   resources :password_resets, only: [:new, :create, :edit, :update]

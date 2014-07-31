@@ -64,6 +64,29 @@ class OrdersController < ApplicationController
     end
   end
 
+  def change_qty
+    item = LineItem.find(params[:id])
+    qty = item.quantity
+
+    respond_to do |format|
+      if params[:add]
+        item.update_attribute(:quantity, qty += 1)
+          format.html { redirect_to new_order_path, :notice => 'Item was added' }
+          format.js { @current_item = item }
+      elsif params[:sub]
+        if qty > 1
+          item.update_attribute(:quantity, qty -= 1)
+          format.html { redirect_to new_order_path, :notice => 'Item was removed' }
+          format.js { @current_item = item }
+        else
+          item.destroy
+          format.html { redirect_to new_order_path, :notice => 'Item was destroyed' }
+          format.js
+        end
+      end
+    end
+  end
+
   
   # GET /orders/1/edit
   /
