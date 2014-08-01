@@ -3,20 +3,14 @@
 <% else %>
   <tr data-item_id="<%= line_item.id %>">
 <% end %>
-    <td><%= line_item.id %></td>
-    <td><%= line_item.quantity %>&times;</td>
+    <td id="quantity-<%= line_item.id %>"><%= line_item.quantity %></td>
     <td><%= line_item.product.title %></td>
-    <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+    <%# number_to_currency(line_item.total_price) %>
+    <td id="item-price-<%= line_item.id %>"><%= line_item.total_price.to_i %></td>
     <td>
-      <%= form_for line_item, :url => change_qty_orders_path(id: line_item), :remote => true do |f| %>
-        <%= f.submit '+', :name => 'add', :class => 'add' %>
-        <%= f.submit '-', :name => 'sub' %>
-      <% end -%>
-      <%= button_to 'Add to Cart', line_items_path(id: line_item),method: :patch, remote: true, class: "button middle_green" %>
-    </td>
-    <td>
+      <span class = "add-quantity">Добавить</span>
+      <span class = "delete-quantity">Вычесть</span>
       <span class = "deleteAction">Удалить</span>
-      <%= link_to "Удалить", line_item, method: :delete, data: {confirm: "Точно удалть?"} %>
     </td>
   </tr>
 

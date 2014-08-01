@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   resources :users
   resources :orders, only: [:index, :show, :new, :create, :edit] do
     collection do
-      patch  'change_qty'
+      patch 'cgange_add'
+      patch 'change_decrement'
     end
   end
+
   resources :line_items
   resources :carts
   resources :password_resets, only: [:new, :create, :edit, :update]
@@ -22,6 +24,8 @@ Rails.application.routes.draw do
   match '/registration', to: 'clients#new' , via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
+  match '/change_add' => 'orders#change_add', via: 'get'
+  match '/change_decrement' => 'orders#change_decrement', via: 'get'
 
   get 'admin' => 'admin#index'
   controller :session do

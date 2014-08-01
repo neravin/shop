@@ -64,30 +64,32 @@ class OrdersController < ApplicationController
     end
   end
 
-  def change_qty
-    item = LineItem.find(params[:id])
-    qty = item.quantity
-
-    respond_to do |format|
-      if params[:add]
-        item.update_attribute(:quantity, qty += 1)
-          format.html { redirect_to new_order_path, :notice => 'Item was added' }
-          format.js { @current_item = @line_item }
-      elsif params[:sub]
-        if qty > 1
-          item.update_attribute(:quantity, qty -= 1)
-          format.html { redirect_to new_order_path, :notice => 'Item was removed' }
-          format.js { @current_item = @line_item }
-        else
-          item.destroy
-          format.html { redirect_to new_order_path, :notice => 'Item was destroyed' }
-          format.js
-        end
-      end
+  def change_add
+    @cart = Cart.find(session[:cart_id])
+    if (@cart.line_items.exists?(:id => params[:id]))
+      item = @cart.line_items.find(params[:id])
+      qty = item.quantity
+      item.update_attribute(:quantity, qty +=1)
+      render json: { success: true }
+    else
+      render json: { error: "Кто ты такой?" }
     end
   end
 
-  
+  def change_decrement
+    @cart = Cart.find(session[:cart_id])
+    if (@cart.line_items.exists?(:id => params[:id]))
+      item = @cart.line_items.find(params[:id])
+      qty = item.quantity
+      if(qty > 1)
+        item.update_attribute(:quantity, qty -=1)
+      end
+      render json: { success: true }
+    else
+      render json: { error: "Кто ты такой?" }
+    end
+  end
+
   # GET /orders/1/edit
   /
   def edit
