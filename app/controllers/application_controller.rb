@@ -18,5 +18,13 @@ class ApplicationController < ActionController::Base
         redirect_to login_url, notice: "Пожалуйста, пройдите авторизацию"
       end
     end
+     def is_admin
+       if User.find_by(id: session[:user_id])
+          @orders = Order.all
+       elsif signed_in?
+          @orders = Order.where(client_id: current_client.id)
+       else redirect_to home_url, notice: "Пожалуйста, пройдите авторизацию"
+      end
+   end
 
 end
