@@ -7,11 +7,9 @@
     <td><%= line_item.product.title %></td>
     <%# number_to_currency(line_item.total_price) %>
     <td id="item-price-<%= line_item.id %>"><%= line_item.total_price.to_i %></td>
-    <td>
-      <span class = "add-quantity">Добавить</span>
-      <span class = "delete-quantity">Вычесть</span>
-      <span class = "deleteAction">Удалить</span>
-    </td>
+    <td><span class = "add-quantity fa fa-plus-circle link"></span></td> 
+    <td><span class = "delete-quantity fa fa-minus-circle link"></span></td>   
+    <td><span class = "deleteAction fa fa-trash-o link"></span></td>
   </tr>
 
 
