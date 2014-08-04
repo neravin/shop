@@ -60,7 +60,12 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1.json
   def destroy
     @line_item.destroy
-    render json: { success: true }
+    @cart = Cart.find(session[:cart_id])
+    if (!@cart.line_items.exists?)
+      render text: "render_home_page"
+    else
+      render json: { success: true }
+    end
     #respond_to do |format|
       #format.html { redirect_to new_order_path, notice: 'Line item was successfully destroyed.' }
       #format.json { head :no_content }

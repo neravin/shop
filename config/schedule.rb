@@ -27,6 +27,6 @@ every 24.hours do
   runner "Client.delete_clients"
 end
 
-every 2.days do
+every 12.hours do
   runner "Cart.delete_carts"
 end

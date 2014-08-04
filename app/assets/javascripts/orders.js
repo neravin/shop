@@ -68,6 +68,10 @@ jQuery(function($) {
         type: 'POST',
         data: { _method: 'DELETE' },
         success: function(result) {
+          if(result == 'render_home_page'){
+            window.location = "/";
+          }
+
           //  delete tr
           $(current_item_tr).fadeOut(200);
           //  change total quantity
