@@ -2,24 +2,7 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-  <%#
-  <%= search_form_for @search, url: store_index_path do |f| %>
-  <%#    <div class="field">
-        <%= f.label :title_cont, "Name contains" %>
-  <%#      <%= f.text_field :title_cont %>
-  <%#    </div>
-      <div class="field">
-        <%= f.label :price_gteq, "Price between" %>
-  <%#      <%= f.text_field :price_gteq %>
-  <%#     <%= f.label :price_lteq, "and" %>
-  <%#      <%= f.text_field :price_lteq %>
-  <%#    </div>
-      <div class="actions"><%= f.submit "Search" %></div>
-  <%#<% end %>
 
-<% @carts.each do |cart| %>
-  <%= cart.created_at %>  id = <%= cart.id %><br/>
-<% end %>
 
 <%= render 'categories/category_links' %>
 

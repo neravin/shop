@@ -4,19 +4,28 @@
   <% cache ['store', Product.latest] do %>
     <% @products.each do |product| %>
       <% cache ['entry', product] do %>
-      <li>
 
+      <li>
+        <%= link_to product, :class => "link-product" do %>
           <%= image_tag(product.image_url) %>
           <h3><%= product.title %></h3>
-
           <div class="price">
             <%= number_to_currency(product.price) %>
           </div><!--/price_line-->
           <div class="details">
             <%= sanitize(product.description) %>
           </div>
-          <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true, class: "button middle_green" %>
+        <% end %>
+
+        <%= button_to line_items_path(product_id: product), remote: true, class: "add-to-cart button middle_green" do %>
+          <i class="fa fa-shopping-cart"></i>   Add to cart
+        <% end %>
+        <%= button_to line_items_path(product_id: product), remote: true, class: "add-to-favorites button middle_green" do %>
+          <i class="fa fa-heart"></i>
+        <% end %>
+          
       </li><!--/entry-->
+      
       <% end %>
     <% end %>
   <% end %>

@@ -26,21 +26,21 @@
   float: right;
   width: 85%;
   .pseudo-list-products{
-    border-left: 3px solid #007095;
-    border-right: 3px solid #007095;
-    padding: 0 20px;
-    padding-right: 0px;
+    //border-left: 3px solid #007095;
+    //border-right: 3px solid #007095;
+    //padding: 0 20px;
 
     ul{
       display: block;
       position: relative;
       li{
         width: 33%;
+        padding: 10px;
         text-align: center;
-        padding: 25px;
-        margin: 20px 0 0;
+        //padding: 25px;
+        margin: 5px 0 0;
         display: inline-block;
-        min-height: 420px;
+        //min-height: 420px;
         vertical-align: top;
         position: relative;
         h3{
@@ -112,5 +112,38 @@
   .list_line_odd {
     background: #f8b0f8;
     
+  }
+}
+
+.link-product{
+  display: block;
+  padding: 25px;
+  background: #f1f4f9;
+  &:hover{
+    //border-top: 3px solid #007095;
+    //border-bottom: 3px solid #007095;
+    background: #007095;
+  }
+}
+
+.add-to-cart{
+  position: absolute;
+  bottom: -5px;
+  left: -5px;
+  width: 107px;
+  //border: 1px solid #1b967e;
+  border-radius: 0;
+}
+
+.add-to-favorites{
+  position: absolute;
+  bottom: -5px;
+  left: 102px;
+  //background: $red;
+  //border: 1px solid #1b967e;
+  border-radius: 0;
+  &:hover{
+    background: $dark-red;
+    background: #007095;
   }
 }
