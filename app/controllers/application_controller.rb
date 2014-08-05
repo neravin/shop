@@ -6,12 +6,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   include SessionsHelper
-
-  def session_nil
-    if session[:user_id].nil? 
-    end 
-  end
   
+  def session_admin?
+    !session[:user_id].nil? 
+  end
+
   protected
     def authorize
       unless User.find_by(id: session[:user_id])

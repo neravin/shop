@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @is_admin = session_nil
+    @is_admin = session_admin?
     @search = @category.products.search(params[:q])
     @products = @search.result(distinct: true)
     @categories = Category.all
@@ -74,10 +74,6 @@ class CategoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Category.find(params[:id])
-    end
-
-    def session_nil
-       !session[:user_id].nil? 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
