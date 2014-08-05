@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: 'delete'
   match '/change_add' => 'orders#change_add', via: 'get'
   match '/change_decrement' => 'orders#change_decrement', via: 'get'
+  match '/store' => 'store#index', via: 'get'
 
   get 'admin' => 'admin#index'
   controller :session do
@@ -42,8 +43,6 @@ Rails.application.routes.draw do
   resources :line_items
 
   resources :carts
-
-  get 'store/index'
 
   get 'home/index'
   get 'category/show'
