@@ -25,8 +25,8 @@ class OrdersController < ApplicationController
   def new
     if @cart.line_items.empty?
       redirect_to store_path, notice: "Your cart is empty"
-      return
     end
+    @empty_in_order = true;
     @is_order = 1
     @order = Order.new
   end

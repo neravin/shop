@@ -4,6 +4,7 @@
   <% if @is_order %>
     <%= render(cart.line_items) %>
   <% end %>
+
   <tr class="total_line">
     <td id = "total-line-items"><%= cart.line_items.sum(:quantity) %></td>
 	  <td colspan="1">Итого:</td>
@@ -12,4 +13,7 @@
 </table>
 
 <%= button_to "Checkout", new_order_path, method: :get %>
-<%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% if !@empty_in_order.nil? %>
+  <%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
