@@ -6,7 +6,7 @@
       <% cache ['entry', product] do %>
 
       <li>
-        <%= link_to product, :class => "link-product" do %>
+        <%= link_to product, id: "product-#{product.id}", class: "link-product" do %>
           <%= image_tag(product.image_url) %>
           <h3><%= product.title %></h3>
           <div class="price">
@@ -30,5 +30,6 @@
     <% end %>
   <% end %>
   </ul>
+  <span class = "link-product">gfgfdg</span>
 </div><!--/pseudo-list-products-->
 </div><!--/list-products-->
