@@ -25,17 +25,25 @@ function addLastProductsToDom() {
   if(ul && (ul.childNodes.length <= 1)){
     products = getProductsFromStorage();
     for ( var i = 0; i < products.length; i++ ){
-      var li   = document.createElement("li");
-      var a    = document.createElement("a");
-      var href = "/products/" + products[i].id;
-      var h3   = document.createElement("h3");
+      var li    = document.createElement("li");
+      var a     = document.createElement("a");
+      var href  = "/products/" + products[i].id;
+      var h3    = document.createElement("h3");
+      var img   = document.createElement("img");
+      var divPrice = document.createElement("div");
 
       a.setAttribute("class", "link-product");
       a.setAttribute("href", href);
       h3.setAttribute("class", "product-title");
       h3.innerHTML = products[i].title;
+      img.setAttribute("alt", products[i].title);
+      img.setAttribute("src", products[i].imageSrc);
+      divPrice.setAttribute("class", "price");
+      divPrice.innerHTML = products[i].price.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") + " руб";
 
+      a.appendChild(img);
       a.appendChild(h3);
+      a.appendChild(divPrice);
       li.appendChild(a);
       ul.appendChild(li);
     }

@@ -10,7 +10,10 @@
           <%= image_tag(product.image_url) %>
           <h3 class = "product-title"><%= product.title %></h3>
           <div class="price">
-            <%= number_to_currency(product.price) %>
+            <%= number_to_currency(product.price, 
+              :precision => 0, 
+              :unit      => " руб",
+              :format    => "%n%u" ) %>
           </div><!--/price_line-->
 
         <% end %>
@@ -28,8 +31,8 @@
     <% end %>
   <% end %>
   </ul>
-  <span class = "link-product">gfgfdg</span>
-
+  <br><br>
+  <h3>Последние просмотренные товары</h3>
   <ul id = "last-view">
   </ul>
   
