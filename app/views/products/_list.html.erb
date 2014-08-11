@@ -8,13 +8,11 @@
       <li>
         <%= link_to product, id: "product-#{product.id}", class: "link-product" do %>
           <%= image_tag(product.image_url) %>
-          <h3><%= product.title %></h3>
+          <h3 class = "product-title"><%= product.title %></h3>
           <div class="price">
             <%= number_to_currency(product.price) %>
           </div><!--/price_line-->
-          <div class="details">
-            <%= sanitize(product.description) %>
-          </div>
+
         <% end %>
 
         <%= button_to line_items_path(product_id: product), remote: true, class: "add-to-cart button middle_green" do %>
@@ -31,5 +29,9 @@
   <% end %>
   </ul>
   <span class = "link-product">gfgfdg</span>
+
+  <ul id = "last-view">
+  </ul>
+  
 </div><!--/pseudo-list-products-->
 </div><!--/list-products-->
